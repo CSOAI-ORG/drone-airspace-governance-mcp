@@ -1,0 +1,8 @@
+name: drone-airspace-governance-mcp
+description: MEOK AI Labs — drone airspace governance
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/drone-airspace-governance-mcp
+license: MIT
+runtime: python
+entrypoint: server.py
