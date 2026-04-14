@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
 """Drone Airspace Governance MCP — MEOK AI Labs. FAA Remote ID, EASA U-Space, autonomous flight compliance."""
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import json, os
 from datetime import datetime, timezone
 from typing import Optional
@@ -23,8 +28,12 @@ CATEGORIES = {
 }
 
 @mcp.tool()
-def classify_operation(weight_kg: float, altitude_m: float, bvlos: bool, over_people: bool, autonomous: bool) -> str:
+def classify_operation(weight_kg: float, altitude_m: float, bvlos: bool, over_people: bool, autonomous: bool, api_key: str = "") -> str:
     """Classify drone operation category per EASA/FAA regulations."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _rl(): return err
     if weight_kg > 150 or autonomous:
         cat = "certified"
@@ -33,52 +42,64 @@ def classify_operation(weight_kg: float, altitude_m: float, bvlos: bool, over_pe
     else:
         cat = "open"
     info = CATEGORIES[cat]
-    return json.dumps({"category": cat, "weight_kg": weight_kg, "altitude_m": altitude_m,
+    return {"category": cat, "weight_kg": weight_kg, "altitude_m": altitude_m,
         "bvlos": bvlos, "over_people": over_people, "autonomous": autonomous,
         "requirements": info, "remote_id_required": True,
         "sora_required": cat == "specific", "type_certificate_required": cat == "certified",
         "eu_ai_act_applicable": autonomous,
-        "note": "Autonomous drones with AI decision-making are subject to EU AI Act as high-risk systems." if autonomous else "Standard operation."}, indent=2)
+        "note": "Autonomous drones with AI decision-making are subject to EU AI Act as high-risk systems." if autonomous else "Standard operation."}
 
 @mcp.tool()
-def bvlos_risk_assessment(distance_km: float, environment: str, weather: str = "clear", population: str = "rural") -> str:
+def bvlos_risk_assessment(distance_km: float, environment: str, weather: str = "clear", population: str = "rural", api_key: str = "") -> str:
     """SORA 2.5 risk assessment for Beyond Visual Line of Sight operations."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _rl(): return err
     ground_risk = {"rural": 2, "suburban": 4, "urban": 6, "congested": 8}.get(population, 4)
     air_risk = 2 if distance_km < 5 else 4 if distance_km < 20 else 6
     weather_mod = {"clear": 0, "cloudy": 1, "rain": 2, "wind": 2, "storm": 5}.get(weather, 1)
     total_risk = ground_risk + air_risk + weather_mod
     sail = "SAIL I" if total_risk < 5 else "SAIL II" if total_risk < 8 else "SAIL III" if total_risk < 12 else "SAIL IV"
-    return json.dumps({"distance_km": distance_km, "environment": environment, "weather": weather,
+    return {"distance_km": distance_km, "environment": environment, "weather": weather,
         "ground_risk_class": ground_risk, "air_risk_class": air_risk,
         "total_risk_score": total_risk, "sail_level": sail,
         "mitigations_required": ["Enhanced containment", "Strategic deconfliction"] if total_risk > 5 else ["Standard procedures"],
-        "methodology": "SORA 2.5 (Specific Operations Risk Assessment)"}, indent=2)
+        "methodology": "SORA 2.5 (Specific Operations Risk Assessment)"}
 
 @mcp.tool()
-def remote_id_compliance(has_remote_id: bool, broadcast_type: str = "standard") -> str:
+def remote_id_compliance(has_remote_id: bool, broadcast_type: str = "standard", api_key: str = "") -> str:
     """Check FAA Remote ID compliance for drone operations."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _rl(): return err
-    return json.dumps({"compliant": has_remote_id, "broadcast_type": broadcast_type,
+    return {"compliant": has_remote_id, "broadcast_type": broadcast_type,
         "faa_requirement": "All drones >250g must broadcast Remote ID (effective Sept 2023)",
         "easa_requirement": "Remote identification mandatory under EU Implementing Regulation 2019/947",
         "data_broadcast": ["Serial number", "Location", "Altitude", "Velocity", "Operator location", "Timestamp"],
         "penalty": "FAA: Up to $27,500 civil penalty. EASA: Member state penalties.",
-        "remediation": "Install FAA-approved Remote ID module or use drone with built-in Remote ID" if not has_remote_id else "Compliant"}, indent=2)
+        "remediation": "Install FAA-approved Remote ID module or use drone with built-in Remote ID" if not has_remote_id else "Compliant"}
 
 @mcp.tool()
-def autonomous_decision_governance(decision_type: str, reversible: bool, human_override: bool) -> str:
+def autonomous_decision_governance(decision_type: str, reversible: bool, human_override: bool, api_key: str = "") -> str:
     """Governance check for autonomous drone AI decisions (EU AI Act + aviation safety)."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if err := _rl(): return err
     risk = "high" if not reversible and not human_override else "medium" if not human_override else "low"
-    return json.dumps({"decision_type": decision_type, "reversible": reversible, "human_override": human_override,
+    return {"decision_type": decision_type, "reversible": reversible, "human_override": human_override,
         "risk_level": risk, "eu_ai_act_class": "high-risk" if risk != "low" else "limited-risk",
         "requirements": {
             "high": ["Full EU AI Act Article 9-15 compliance", "Notified body assessment", "CE marking", "Human oversight mandatory"],
             "medium": ["Risk management system", "Technical documentation", "Human override capability"],
             "low": ["Transparency obligations", "Basic documentation"],
         }[risk],
-        "recommendation": "Autonomous drone decisions in airspace are high-risk under EU AI Act Annex III. Ensure human override capability." if risk == "high" else "Standard compliance procedures."}, indent=2)
+        "recommendation": "Autonomous drone decisions in airspace are high-risk under EU AI Act Annex III. Ensure human override capability." if risk == "high" else "Standard compliance procedures."}
 
 if __name__ == "__main__":
     mcp.run()

@@ -1,8 +1,60 @@
 name: drone-airspace-governance-mcp
-description: MEOK AI Labs — drone airspace governance
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/drone-airspace-governance-mcp
-license: MIT
-runtime: python
-entrypoint: server.py
+description: "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for\
+  \ everyone."
+version: 1.0.0
+tools:
+- name: classify_operation
+  description: Classify drone operation category per EASA/FAA regulations.
+  parameters:
+  - name: weight_kg
+    type: number
+    required: true
+  - name: altitude_m
+    type: number
+    required: true
+  - name: bvlos
+    type: boolean
+    required: true
+  - name: over_people
+    type: boolean
+    required: true
+  - name: autonomous
+    type: boolean
+    required: true
+- name: bvlos_risk_assessment
+  description: SORA 2.5 risk assessment for Beyond Visual Line of Sight operations.
+  parameters:
+  - name: distance_km
+    type: number
+    required: true
+  - name: environment
+    type: string
+    required: true
+  - name: weather
+    type: string
+    required: false
+  - name: population
+    type: string
+    required: false
+- name: remote_id_compliance
+  description: Check FAA Remote ID compliance for drone operations.
+  parameters:
+  - name: has_remote_id
+    type: boolean
+    required: true
+  - name: broadcast_type
+    type: string
+    required: false
+- name: autonomous_decision_governance
+  description: Governance check for autonomous drone AI decisions (EU AI Act + aviation
+    safety).
+  parameters:
+  - name: decision_type
+    type: string
+    required: true
+  - name: reversible
+    type: boolean
+    required: true
+  - name: human_override
+    type: boolean
+    required: true

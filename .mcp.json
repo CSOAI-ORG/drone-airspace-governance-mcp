@@ -1,1 +1,104 @@
-{"name":"drone-airspace-governance-mcp","vendor":"MEOK AI Labs","homepage":"https://meok.ai","repository":"https://github.com/CSOAI-ORG/drone-airspace-governance-mcp","runtime":"python","entrypoint":"server.py"}
+{
+  "name": "drone-airspace-governance-mcp",
+  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 Sovereign AI tools for everyone.",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "classify_operation",
+      "description": "Classify drone operation category per EASA/FAA regulations.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "weight_kg": {
+            "type": "number"
+          },
+          "altitude_m": {
+            "type": "number"
+          },
+          "bvlos": {
+            "type": "boolean"
+          },
+          "over_people": {
+            "type": "boolean"
+          },
+          "autonomous": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "weight_kg",
+          "altitude_m",
+          "bvlos",
+          "over_people",
+          "autonomous"
+        ]
+      }
+    },
+    {
+      "name": "bvlos_risk_assessment",
+      "description": "SORA 2.5 risk assessment for Beyond Visual Line of Sight operations.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "distance_km": {
+            "type": "number"
+          },
+          "environment": {
+            "type": "string"
+          },
+          "weather": {
+            "type": "string"
+          },
+          "population": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "distance_km",
+          "environment"
+        ]
+      }
+    },
+    {
+      "name": "remote_id_compliance",
+      "description": "Check FAA Remote ID compliance for drone operations.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "has_remote_id": {
+            "type": "boolean"
+          },
+          "broadcast_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "has_remote_id"
+        ]
+      }
+    },
+    {
+      "name": "autonomous_decision_governance",
+      "description": "Governance check for autonomous drone AI decisions (EU AI Act + aviation safety).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "decision_type": {
+            "type": "string"
+          },
+          "reversible": {
+            "type": "boolean"
+          },
+          "human_override": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "decision_type",
+          "reversible",
+          "human_override"
+        ]
+      }
+    }
+  ]
+}
