@@ -1,6 +1,6 @@
 {
   "name": "drone-airspace-governance-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 MEOK AI Labs \u2014 Drone AI Governance. FAA Remote ID, EASA U-Space, BVLOS risk assessment. First physic",
+  "description": "Drone Airspace Governance tools for AI agents. Capabilities: classify operation, bvlos risk assessment, remote id compliance. Built by MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {

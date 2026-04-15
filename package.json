@@ -1,1 +1,11 @@
-{"name":"drone-airspace-governance-mcp","version":"1.0.0","description":"First physical AI governance MCP. FAA Remote ID, EASA U-Space, BVLOS SORA, autonomous flight.","author":"MEOK AI Labs","license":"MIT","repository":{"type":"git","url":"https://github.com/CSOAI-ORG/drone-airspace-governance-mcp"}}
+{
+  "name": "drone-airspace-governance-mcp",
+  "version": "1.0.0",
+  "description": "Drone Airspace Governance tools for AI agents. Capabilities: classify operation, bvlos risk assessment, remote id compliance. Built by MEOK AI Labs.",
+  "author": "MEOK AI Labs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSOAI-ORG/drone-airspace-governance-mcp"
+  }
+}
