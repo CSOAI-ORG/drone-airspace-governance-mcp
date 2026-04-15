@@ -1,0 +1,10 @@
+{
+  "name": "drone-airspace-governance-mcp",
+  "description": "MEOK AI Labs \u2014 drone-airspace-governance-mcp",
+  "vendor": "MEOK AI Labs",
+  "homepage": "https://meok.ai",
+  "repository": "https://github.com/CSOAI-ORG/drone-airspace-governance-mcp",
+  "license": "MIT",
+  "runtime": "python",
+  "entryPoint": "mcp-wrapper.py"
+}

@@ -22,3 +22,6 @@ Repository = "https://github.com/CSOAI-ORG/drone-airspace-governance-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
 only-include = ["server.py"]
+
+[project.scripts]
+drone_airspace_governance_mcp = "server:main"
