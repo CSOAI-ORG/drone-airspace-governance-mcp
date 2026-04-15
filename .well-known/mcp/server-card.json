@@ -1,0 +1,54 @@
+{
+  "name": "drone-airspace-governance",
+  "description": "MEOK AI Labs \u2014 Drone AI Governance. FAA Remote ID, EASA U-Space, BVLOS risk assessment. First physical AI governance MCP.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/drone-airspace-governance-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "classify_operation",
+      "description": "Classify drone operation category per EASA/FAA regulations."
+    },
+    {
+      "name": "bvlos_risk_assessment",
+      "description": "SORA 2.5 risk assessment for Beyond Visual Line of Sight operations."
+    },
+    {
+      "name": "remote_id_compliance",
+      "description": "Check FAA Remote ID compliance for drone operations."
+    },
+    {
+      "name": "autonomous_decision_governance",
+      "description": "Governance check for autonomous drone AI decisions (EU AI Act + aviation safety)."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning",
+    "IoT & Hardware",
+    "Science & Engineering"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
