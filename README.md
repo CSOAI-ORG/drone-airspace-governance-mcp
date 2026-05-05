@@ -1,72 +1,38 @@
-# Drone Airspace Governance
+<div align="center">
 
-> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs — Drone AI Governance. FAA Remote ID, EASA U-Space, BVLOS risk assessment. First physical AI governance MCP.
+[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/drone-airspace-governance-mcp)](https://github.com/CSOAI-ORG/drone-airspace-governance-mcp/stargazers)
 
-Drone Airspace Governance MCP — MEOK AI Labs. FAA Remote ID, EASA U-Space, autonomous flight compliance.
+# udroneU airspaceU governanceU mcp
+
+**Drone Airspace Governance MCP — MEOK AI Labs. FAA Remote ID, EASA U-Space, autonomous flight compliance.**
+
+[![npm version](https://img.shields.io/npm/v/@meok-ai/drone-airspace-governance-mcp)](https://www.npmjs.com/package/@meok-ai/drone-airspace-governance-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
+
+[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/drone-airspace-governance-mcp/issues)
+
+</div>
+
+---
 
 ## Installation
 
 ```bash
 pip install drone-airspace-governance-mcp
+# or
+npm install -g @meok-ai/drone-airspace-governance-mcp
 ```
 
-## Usage
+## Quick Start
 
-```bash
-# Run standalone
-python server.py
+See the project repository for full documentation and examples.
 
-# Or via MCP
-mcp install drone-airspace-governance-mcp
-```
+## Enterprise Support
 
-## Tools
-
-### `classify_operation`
-Classify drone operation category per EASA/FAA regulations.
-
-**Parameters:**
-- `weight_kg` (float)
-- `altitude_m` (float)
-- `bvlos` (bool)
-- `over_people` (bool)
-- `autonomous` (bool)
-
-### `bvlos_risk_assessment`
-SORA 2.5 risk assessment for Beyond Visual Line of Sight operations.
-
-**Parameters:**
-- `distance_km` (float)
-- `environment` (str)
-- `weather` (str)
-- `population` (str)
-
-### `remote_id_compliance`
-Check FAA Remote ID compliance for drone operations.
-
-**Parameters:**
-- `has_remote_id` (bool)
-- `broadcast_type` (str)
-
-### `autonomous_decision_governance`
-Governance check for autonomous drone AI decisions (EU AI Act + aviation safety).
-
-**Parameters:**
-- `decision_type` (str)
-- `reversible` (bool)
-- `human_override` (bool)
-
-
-## Authentication
-
-Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
-
-## Links
-
-- **Website**: [meok.ai](https://meok.ai)
-- **GitHub**: [CSOAI-ORG/drone-airspace-governance-mcp](https://github.com/CSOAI-ORG/drone-airspace-governance-mcp)
-- **PyPI**: [pypi.org/project/drone-airspace-governance-mcp](https://pypi.org/project/drone-airspace-governance-mcp/)
+- 📧 nicholas@csoai.org
+- 🌐 [CSOAI.org](https://csoai.org)
 
 ## License
 
-MIT — MEOK AI Labs
+MIT © [CSOAI](https://csoai.org)
