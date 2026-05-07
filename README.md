@@ -1,3 +1,7 @@
+[![drone-airspace-governance-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/drone-airspace-governance-mcp/badges/score.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/drone-airspace-governance-mcp)
+[![MCP Registry](https://img.shields.io/badge/MCP_Registry-Published-green)](https://registry.modelcontextprotocol.io)
+[![PyPI](https://img.shields.io/pypi/v/drone-airspace-governance-mcp)](https://pypi.org/project/drone-airspace-governance-mcp/)
+
 [![drone-airspace-governance-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/drone-airspace-governance-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/drone-airspace-governance-mcp)
 
 <div align="center">
