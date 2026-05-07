@@ -46,6 +46,15 @@ def classify_operation(weight_kg: float, altitude_m: float, bvlos: bool, over_pe
     When NOT to use:
         Do not use as a substitute for qualified legal counsel. This tool
         provides technical compliance guidance, not legal advice.
+
+    Args:
+        weight_kg (float): The weight kg to analyze or process.
+        altitude_m (float): The altitude m to analyze or process.
+        bvlos (bool): The bvlos to analyze or process.
+        over_people (bool): The over people to analyze or process.
+        autonomous (bool): The autonomous to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -99,6 +108,14 @@ def bvlos_risk_assessment(distance_km: float, environment: str, weather: str = "
     When NOT to use:
         Do not use as a substitute for qualified legal counsel. This tool
         provides technical compliance guidance, not legal advice.
+
+    Args:
+        distance_km (float): The distance km to analyze or process.
+        environment (str): The environment to analyze or process.
+        weather (str): The weather to analyze or process.
+        population (str): The population to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -149,6 +166,12 @@ def remote_id_compliance(has_remote_id: bool, broadcast_type: str = "standard", 
     When NOT to use:
         Do not use as a substitute for qualified legal counsel. This tool
         provides technical compliance guidance, not legal advice.
+
+    Args:
+        has_remote_id (bool): The has remote id to analyze or process.
+        broadcast_type (str): The broadcast type to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -195,6 +218,13 @@ def autonomous_decision_governance(decision_type: str, reversible: bool, human_o
     When NOT to use:
         Do not use as a substitute for qualified legal counsel. This tool
         provides technical compliance guidance, not legal advice.
+
+    Args:
+        decision_type (str): The decision type to analyze or process.
+        reversible (bool): The reversible to analyze or process.
+        human_override (bool): The human override to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
