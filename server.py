@@ -29,7 +29,24 @@ CATEGORIES = {
 
 @mcp.tool()
 def classify_operation(weight_kg: float, altitude_m: float, bvlos: bool, over_people: bool, autonomous: bool, api_key: str = "") -> str:
-    """Classify drone operation category per EASA/FAA regulations."""
+    """Classify drone operation category per EASA/FAA regulations.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -51,7 +68,24 @@ def classify_operation(weight_kg: float, altitude_m: float, bvlos: bool, over_pe
 
 @mcp.tool()
 def bvlos_risk_assessment(distance_km: float, environment: str, weather: str = "clear", population: str = "rural", api_key: str = "") -> str:
-    """SORA 2.5 risk assessment for Beyond Visual Line of Sight operations."""
+    """SORA 2.5 risk assessment for Beyond Visual Line of Sight operations.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -70,7 +104,24 @@ def bvlos_risk_assessment(distance_km: float, environment: str, weather: str = "
 
 @mcp.tool()
 def remote_id_compliance(has_remote_id: bool, broadcast_type: str = "standard", api_key: str = "") -> str:
-    """Check FAA Remote ID compliance for drone operations."""
+    """Check FAA Remote ID compliance for drone operations.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -85,7 +136,24 @@ def remote_id_compliance(has_remote_id: bool, broadcast_type: str = "standard", 
 
 @mcp.tool()
 def autonomous_decision_governance(decision_type: str, reversible: bool, human_override: bool, api_key: str = "") -> str:
-    """Governance check for autonomous drone AI decisions (EU AI Act + aviation safety)."""
+    """Governance check for autonomous drone AI decisions (EU AI Act + aviation safety).
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need to assess, audit, or verify compliance
+        requirements. Ideal for gap analysis, readiness checks, and generating
+        compliance documentation.
+
+    When NOT to use:
+        Do not use as a substitute for qualified legal counsel. This tool
+        provides technical compliance guidance, not legal advice.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
