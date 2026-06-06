@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Drone Airspace Governance MCP — MEOK AI Labs. FAA Remote ID, EASA U-Space, autonomous flight compliance."""
+"""
+Drone Airspace Governance MCP — MEOK AI Labs. FAA Remote ID, EASA U-Space, autonomous flight compliance."""
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import json, os
@@ -72,7 +72,7 @@ def classify_operation(weight_kg: float, altitude_m: float, bvlos: bool, over_pe
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     if err := _rl(): return err
     if weight_kg > 150 or autonomous:
@@ -133,7 +133,7 @@ def bvlos_risk_assessment(distance_km: float, environment: str, weather: str = "
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     if err := _rl(): return err
     ground_risk = {"rural": 2, "suburban": 4, "urban": 6, "congested": 8}.get(population, 4)
@@ -189,7 +189,7 @@ def remote_id_compliance(has_remote_id: bool, broadcast_type: str = "standard", 
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     if err := _rl(): return err
     return {"compliant": has_remote_id, "broadcast_type": broadcast_type,
@@ -242,7 +242,7 @@ def autonomous_decision_governance(decision_type: str, reversible: bool, human_o
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
 
     if err := _rl(): return err
     risk = "high" if not reversible and not human_override else "medium" if not human_override else "low"
@@ -255,5 +255,8 @@ def autonomous_decision_governance(decision_type: str, reversible: bool, human_o
         }[risk],
         "recommendation": "Autonomous drone decisions in airspace are high-risk under EU AI Act Annex III. Ensure human override capability." if risk == "high" else "Standard compliance procedures."}
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,33 @@
+# drone-airspace-governance-mcp
+# **MCP server for drone airspace governance mcp operations**
+
+## Install
+```bash
+pip install drone-airspace-governance-mcp
+```
+
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
+
+## Tools
+
+### `classify_operation`
+Classify drone operation category per EASA/FAA regulations.
+
+### `bvlos_risk_assessment`
+SORA 2.5 risk assessment for Beyond Visual Line of Sight operations.
+
+### `remote_id_compliance`
+Check FAA Remote ID compliance for drone operations.
+
+### `autonomous_decision_governance`
+Governance check for autonomous drone AI decisions (EU AI Act + aviation safety).
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

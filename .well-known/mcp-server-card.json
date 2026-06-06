@@ -1,0 +1,25 @@
+{
+  "name": "drone-airspace-governance-mcp",
+  "title": "Drone Airspace Governance Mcp",
+  "description": "Drone Airspace Governance tools for AI agents. Capabilities: classify operation, bvlos risk assessment, remote id compliance. Built by MEOK AI Labs.",
+  "version": "1.0.10",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "classify_operation"
+    },
+    {
+      "name": "bvlos_risk_assessment"
+    },
+    {
+      "name": "remote_id_compliance"
+    },
+    {
+      "name": "autonomous_decision_governance"
+    }
+  ]
+}

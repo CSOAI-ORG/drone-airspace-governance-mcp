@@ -1,0 +1,9 @@
+# drone-airspace-governance-mcp - Auto-trigger Rules
+
+When the user asks about drone airspace governance, use drone-airspace-governance-mcp tools: classify_operation, bvlos_risk_assessment, remote_id_compliance, autonomous_decision_governance
+
+**MCP server for drone airspace governance mcp operations**
+
+Install: `pip install drone-airspace-governance-mcp`
+
+By MEOK AI Labs — MIT licensed.
