@@ -1,0 +1,22 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "drone-airspace-governance-mcp",
+    "description": "Drone Airspace Governance MCP Server by MEOK AI Labs",
+    "version": "1.0.10",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "drone-airspace-governance-mcp"
+      }
+    ],
+    "capabilities": [
+      "classify_operation",
+      "bvlos_risk_assessment",
+      "remote_id_compliance",
+      "autonomous_decision_governance"
+    ]
+  }
+}

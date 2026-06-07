@@ -1,0 +1,59 @@
+{
+  "name": "drone-airspace-governance-mcp",
+  "description": "Drone Airspace Governance MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/drone-airspace-governance-mcp.html",
+  "version": "1.0.10",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "classify_operation",
+      "name": "Classify Operation",
+      "description": "classify_operation via drone-airspace-governance-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "bvlos_risk_assessment",
+      "name": "Bvlos Risk Assessment",
+      "description": "bvlos_risk_assessment via drone-airspace-governance-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "remote_id_compliance",
+      "name": "Remote Id Compliance",
+      "description": "remote_id_compliance via drone-airspace-governance-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "autonomous_decision_governance",
+      "name": "Autonomous Decision Governance",
+      "description": "autonomous_decision_governance via drone-airspace-governance-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
