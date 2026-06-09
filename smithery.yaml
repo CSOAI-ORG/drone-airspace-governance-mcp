@@ -1,60 +1,37 @@
-name: drone-airspace-governance-mcp
-description: 'Drone Airspace Governance tools for AI agents. Capabilities: classify
-  operation, bvlos risk assessment, remote id compliance. Built by MEOK AI Labs.'
-version: 1.0.0
-tools:
-- name: classify_operation
-  description: Classify drone operation category per EASA/FAA regulations.
-  parameters:
-  - name: weight_kg
-    type: number
-    required: true
-  - name: altitude_m
-    type: number
-    required: true
-  - name: bvlos
-    type: boolean
-    required: true
-  - name: over_people
-    type: boolean
-    required: true
-  - name: autonomous
-    type: boolean
-    required: true
-- name: bvlos_risk_assessment
-  description: SORA 2.5 risk assessment for Beyond Visual Line of Sight operations.
-  parameters:
-  - name: distance_km
-    type: number
-    required: true
-  - name: environment
-    type: string
-    required: true
-  - name: weather
-    type: string
-    required: false
-  - name: population
-    type: string
-    required: false
-- name: remote_id_compliance
-  description: Check FAA Remote ID compliance for drone operations.
-  parameters:
-  - name: has_remote_id
-    type: boolean
-    required: true
-  - name: broadcast_type
-    type: string
-    required: false
-- name: autonomous_decision_governance
-  description: Governance check for autonomous drone AI decisions (EU AI Act + aviation
-    safety).
-  parameters:
-  - name: decision_type
-    type: string
-    required: true
-  - name: reversible
-    type: boolean
-    required: true
-  - name: human_override
-    type: boolean
-    required: true
+# smithery.yaml — Smithery (https://smithery.ai) submission payload
+# Repo: CSOAI-ORG/drone-airspace-governance-mcp
+# Generated: 2026-06-09
+# Transport: stdio (PyPI package, installed via uvx)
+# See: DISTRIBUTION_GAPS_2026-06-08.md for the channel strategy
+startCommand:
+  type: stdio
+  timeout: 120000
+  pingInterval: 5000
+  pingTimeout: 30000
+  configSchema:
+    type: object
+    required: []
+    properties:
+      apiKey:
+        type: string
+        description: "MEOK API key (optional; required for x402 paywalled tools)"
+        default: ""
+      x402PayTo:
+        type: string
+        description: "USDC address for x402 micropayments (default: meok.ai wallet)"
+        default: ""
+      logLevel:
+        type: string
+        description: "Log level (debug, info, warn, error)"
+        default: "info"
+    additionalProperties: false
+  commandFunction: |-
+    (config) => ({
+      command: 'uvx',
+      args: ['drone_airspace_governance'],
+      env: {
+        MEOK_API_KEY: config.apiKey || '',
+        X402_PAY_TO: config.x402PayTo || '',
+        MEOK_LOG_LEVEL: config.logLevel || 'info',
+      }
+    })
