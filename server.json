@@ -4,9 +4,8 @@
   "version": "1.0.14",
   "description": "Drone Airspace Governance MCP Server by MEOK AI Labs",
   "repository": {
-    "type": "git",
     "url": "https://github.com/CSOAI-ORG/drone-airspace-governance-mcp",
-    "source": "https://github.com/CSOAI-ORG/drone-airspace-governance-mcp"
+    "source": "github"
   },
   "packages": [
     {
