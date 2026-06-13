@@ -1,0 +1,100 @@
+{
+  "name": "Drone Airspace Governance Mcp",
+  "version": "1.0.10",
+  "url": "https://mcp.meok.ai/drone-airspace-governance-mcp/a2a",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "protocolVersion": "0.3.0",
+  "description": "Drone Airspace Governance tools for AI agents. Capabilities: classify operation, bvlos risk assessment, remote id compliance. Built by MEOK AI Labs.",
+  "provider": {
+    "organization": "MEOK AI LABS",
+    "url": "https://meok.ai"
+  },
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "classify_operation",
+      "name": "Classify Operation",
+      "description": "Classify Operation — a tool of the drone-airspace-governance-mcp MCP.",
+      "tags": [
+        "compliance",
+        "governance"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "bvlos_risk_assessment",
+      "name": "Bvlos Risk Assessment",
+      "description": "Bvlos Risk Assessment — a tool of the drone-airspace-governance-mcp MCP.",
+      "tags": [
+        "compliance",
+        "governance"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "remote_id_compliance",
+      "name": "Remote Id Compliance",
+      "description": "Remote Id Compliance — a tool of the drone-airspace-governance-mcp MCP.",
+      "tags": [
+        "compliance",
+        "governance"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    },
+    {
+      "id": "autonomous_decision_governance",
+      "name": "Autonomous Decision Governance",
+      "description": "Autonomous Decision Governance — a tool of the drone-airspace-governance-mcp MCP.",
+      "tags": [
+        "compliance",
+        "governance"
+      ],
+      "inputModes": [
+        "application/json",
+        "text/plain"
+      ],
+      "outputModes": [
+        "application/json",
+        "text/plain"
+      ]
+    }
+  ],
+  "documentationUrl": "https://meok.ai",
+  "x-meok": {
+    "mcp_name": "drone-airspace-governance-mcp",
+    "verifier": "https://proofof.ai/verify",
+    "governed_by": "CSOAI 52-article charter"
+  }
+}
